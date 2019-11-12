@@ -1,0 +1,37 @@
+<div class="panel panel-primary">
+  <div class="panel-heading"> 
+   
+  </div>
+  <div class="panel-body">
+
+
+    <div class="table-responsive">
+      <table class="table table-striped" *ngIf='users && users.length'>
+        <thead>
+          <tr>
+
+            <th>Dropdown</th>
+         
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users; let in = index">
+
+           
+            <td>
+             
+              <angular2-multiselect  name="dropdown-{{user.id}}" [data]="dropdownList" [(ngModel)]="selectedItems[user.id]" 
+              [settings]="dropdownSettings" 
+              (onSelect)="onItemSelect($event, user.id)" 
+              (onDeSelect)="OnItemDeSelect($event,user.id)"
+              (onSelectAll)="onSelectAll($event)"
+              (onDeSelectAll)="onDeSelectAll($event)" disabled></angular2-multiselect>
+            </td>
+            
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
